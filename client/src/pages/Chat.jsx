@@ -130,14 +130,7 @@ const Chat = () => {
             />
             <div>
               <p className="font-semibold">{user?.name || 'User'}</p>
-              {/* <p className="text-sm text-gray-500">{user?.email || 'user@example.com'}</p> */}
             </div>
-            <button 
-              onClick={handleLogout}
-              className="ml-auto text-sm text-red-500 hover:text-red-700"
-            >
-              Logout
-            </button>
           </div>
         </div>
         
@@ -172,12 +165,22 @@ const Chat = () => {
           )}
         </div>
         
-        {/* Premium Section */}
-        <div className="mt-auto p-4 border-t border-gray-200">
-          <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg p-4 text-center text-white shadow-lg">
-            <Diamond3D />
-            <h3 className="font-bold text-lg mt-2">Get Premium</h3>
-            <p className="text-xs mt-1 text-blue-100">Unlock advanced features</p>
+        {/* Add logout button above Premium Section */}
+        <div className="mt-auto">
+          <button 
+            onClick={handleLogout}
+            className="w-full p-3 text-red-500 hover:text-red-700 hover:bg-red-50 transition-colors duration-200"
+          >
+            Logout
+          </button>
+          
+          {/* Premium Section */}
+          <div className="p-4 border-t border-gray-200">
+            <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg p-4 text-center text-white shadow-lg">
+              <Diamond3D />
+              <h3 className="font-bold text-lg mt-2">Get Premium</h3>
+              <p className="text-xs mt-1 text-blue-100">Unlock advanced features</p>
+            </div>
           </div>
         </div>
       </div>

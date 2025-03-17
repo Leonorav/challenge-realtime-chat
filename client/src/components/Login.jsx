@@ -16,18 +16,6 @@ const Login = () => {
     try {
       dispatch(loginStart());
       
-      // For demo purposes, allow demo login to bypass Supabase
-      if (email === 'demo@example.com' && password === '123456') {
-        const demoUser = {
-          id: '1',
-          email: 'demo@example.com',
-          name: 'Demo User',
-          username: 'demo'
-        };
-        
-        dispatch(loginSuccess(demoUser));
-        return;
-      }
       
       // Sign in with Supabase
       const { data, error: supabaseError } = await supabase.auth.signInWithPassword({
@@ -55,11 +43,6 @@ const Login = () => {
     } catch (error) {
       dispatch(loginFailure(error.message));
     }
-  };
-
-  const handleDemoLogin = () => {
-    setEmail('demo@example.com');
-    setPassword('123456');
   };
 
   return (
@@ -106,17 +89,7 @@ const Login = () => {
             </div>
           )}
 
-          <div className="flex items-center justify-center">
-            <div className="text-sm">
-              <button
-                type="button"
-                className="font-medium text-indigo-600 hover:text-indigo-500"
-                onClick={handleDemoLogin}
-              >
-                Use demo account
-              </button>
-            </div>
-          </div>
+         
 
           <div>
             <button
